@@ -8,33 +8,21 @@ const FilterContainer = styled.div`
   margin-bottom: 32px;
 `;
 
-const FilterChip = styled.button`
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 2px solid ${props => props.active ? '#000000' : '#e2e8f0'};
-  background: ${props => props.active ? '#000000' : 'white'};
-  color: ${props => props.active ? 'white' : '#64748b'};
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: #000000;
-    background: ${props => props.active ? '#333333' : '#f8fafc'};
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-  }
-`;
+// Remove styled FilterChip, use a functional component with Tailwind classes
+const FilterChip = ({ active, onClick, children }) => (
+  <button
+    className={`px-4 py-2 rounded-full font-medium text-sm transition-colors duration-200 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500
+      ${active
+        ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white'
+        : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-100 hover:border-black dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:border-white'}
+    `}
+    onClick={onClick}
+    tabIndex={0}
+    aria-pressed={active}
+  >
+    {children}
+  </button>
+);
 
 export const FilterBar = ({
   categories,

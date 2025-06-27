@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { Package } from 'lucide-react';
 
 const HeaderContainer = styled.header`
-  background: white;
   border-bottom: 1px solid #f1f5f9;
   padding: 20px 0;
   margin-bottom: 40px;
@@ -27,12 +26,10 @@ const Logo = styled.div`
 const LogoIcon = styled.div`
   width: 40px;
   height: 40px;
-  background: #000000;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
 `;
 
 const LogoText = styled.h1`
@@ -40,14 +37,12 @@ const LogoText = styled.h1`
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: #1e293b;
 `;
 
 const Subtitle = styled.p`
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #64748b;
   margin-left: auto;
 
   @media (max-width: 768px) {
@@ -57,15 +52,15 @@ const Subtitle = styled.p`
 
 export const Header = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer className="bg-white dark:bg-gray-900 transition-colors duration-300">
       <HeaderContent>
         <Logo>
-          <LogoIcon>
+          <LogoIcon className="bg-black dark:bg-white text-white dark:text-black">
             <Package size={20} />
           </LogoIcon>
-          <LogoText>VikKit</LogoText>
+          <LogoText className="text-gray-900 dark:text-white">VikKit</LogoText>
         </Logo>
-        <Subtitle>Emotion-powered UI components ready to copy & paste</Subtitle>
+        <Subtitle className="text-gray-500 dark:text-gray-300">Emotion-powered UI components ready to copy & paste</Subtitle>
       </HeaderContent>
     </HeaderContainer>
   );
