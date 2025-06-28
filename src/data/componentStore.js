@@ -1,3 +1,7 @@
+// JavaScript component store for the Vikkit UI Components project
+// Contains all component definitions with metadata, usage examples, and implementation code
+// This file serves as the data source for the component gallery and copy functionality
+
 export const componentStore = [
   {
     id: 'primary-button',

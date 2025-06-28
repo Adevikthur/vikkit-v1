@@ -1,7 +1,11 @@
+// Demo components for the Vikkit UI Components project
+// This file contains all the actual component implementations used for previews in the gallery
+// Each component is styled using Emotion styled-components and follows the design system
+
 import styled from '@emotion/styled';
 import { Check, X, Plus, Search, AlertTriangle, Info, Star, Heart, ShoppingCart, User, Mail, Phone, Calendar, Clock, Download, Upload, Edit, Trash2, Settings, Filter, Grid, List, ChevronDown, ChevronRight } from 'lucide-react';
 
-// Primary Button
+// Primary Button - Main call-to-action button with dark background
 export const PrimaryButton = styled.button`
   background: #000000;
   color: white;
@@ -31,7 +35,7 @@ export const PrimaryButton = styled.button`
   }
 `;
 
-// Secondary Button
+// Secondary Button - Secondary action button with border styling
 export const SecondaryButton = styled.button`
   background: transparent;
   color: #000000;
@@ -60,7 +64,7 @@ export const SecondaryButton = styled.button`
   }
 `;
 
-// Danger Button
+// Danger Button - Destructive action button with red styling
 export const DangerButton = styled.button`
   background: #ef4444;
   color: white;
@@ -90,7 +94,7 @@ export const DangerButton = styled.button`
   }
 `;
 
-// Icon Button
+// Icon Button - Button with icon and text combination
 export const IconButton = styled.button`
   display: flex;
   align-items: center;
@@ -117,7 +121,7 @@ export const IconButton = styled.button`
   }
 `;
 
-// Floating Action Button
+// Floating Action Button - Circular floating button with shadow
 export const FloatingActionButton = styled.button`
   width: 56px;
   height: 56px;
@@ -144,7 +148,7 @@ export const FloatingActionButton = styled.button`
   }
 `;
 
-// Ghost Button
+// Ghost Button - Minimal button with subtle hover effects
 export const GhostButton = styled.button`
   background: transparent;
   color: #64748b;
@@ -163,7 +167,7 @@ export const GhostButton = styled.button`
   }
 `;
 
-// Modern Input
+// Modern Input - Styled input field with focus effects
 export const ModernInput = styled.input`
   width: 100%;
   max-width: 280px;
@@ -190,7 +194,7 @@ export const ModernInput = styled.input`
   }
 `;
 
-// Search Input Container
+// Search Input Container - Container for search input with icon
 export const SearchInputContainer = styled.div`
   position: relative;
   display: flex;

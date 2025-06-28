@@ -1,48 +1,54 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Main CSS file for the Vikkit UI Components project */
+/* This file contains global styles without Tailwind CSS */
 
+/* Global box-sizing reset for consistent sizing across all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Global body styles */
 body {
   margin: 0;
   padding: 0;
+  /* Font stack with Inter as primary, fallback to system fonts */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Font smoothing for better text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Light background color for the application */
   background: #fafbfc;
 }
 
+/* Ensure the root element takes full viewport height */
 #root {
   min-height: 100vh;
 }
 
-/* Scrollbar styling */
+/* Custom scrollbar styling for better visual consistency */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 8px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f1f5f9; /* Light gray background for scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #cbd5e1; /* Medium gray for scrollbar thumb */
+  border-radius: 4px; /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #94a3b8; /* Darker gray on hover */
 }
 
-/* Focus styles for accessibility */
+/* Accessibility focus styles - remove default outline for custom styling */
 *:focus {
   outline: none;
 }
 
-/* Code syntax highlighting for better copy experience */
+/* Code syntax highlighting styles for better copy experience */
 pre, code {
+  /* Monospace font stack for code elements */
   font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 }

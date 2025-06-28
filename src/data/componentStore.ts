@@ -1,13 +1,18 @@
+// TypeScript component store for the Vikkit UI Components project
+// Defines the data structure and component metadata for the component gallery
+
+// Interface defining the structure of component data
 export interface ComponentData {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  jsx: string;
-  code: string;
-  props?: Record<string, any>;
+  id: string; // Unique identifier for the component
+  name: string; // Display name of the component
+  category: string; // Category for grouping components
+  description: string; // Brief description of the component's purpose
+  jsx: string; // JSX usage example for the component
+  code: string; // Full implementation code with styled-components
+  props?: Record<string, any>; // Optional props interface for the component
 }
 
+// Array containing all available components with their metadata and code
 export const componentStore: ComponentData[] = [
   {
     id: 'primary-button',
@@ -243,4 +248,5 @@ const ModalContent = styled.div\`
   }
 ];
 
+// Extract unique categories from the component store for filtering
 export const categories = Array.from(new Set(componentStore.map(comp => comp.category)));

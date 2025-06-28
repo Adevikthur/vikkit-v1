@@ -1,47 +1,102 @@
+// FilterBar component for the Vikkit UI Components project
+// Provides category-based filtering for the component gallery
+
 import React from 'react';
 import styled from '@emotion/styled';
 
+// Styled component for the filter container
+// Provides layout for filter chips with responsive wrapping
 const FilterContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 32px;
+  display: flex; /* Flexbox layout for filter chips */
+  flex-wrap: wrap; /* Allow chips to wrap to next line on smaller screens */
+  gap: 12px; /* Consistent spacing between filter chips */
+  margin-bottom: 32px; /* Space between filter bar and component grid */
 `;
 
-// Remove styled FilterChip, use a functional component with Tailwind classes
-const FilterChip = ({ active, onClick, children }) => (
-  <button
-    className={`px-4 py-2 rounded-full font-medium text-sm transition-colors duration-200 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500
-      ${active
-        ? 'bg-black text-white border-black dark:bg-white dark:text-black dark:border-white'
-        : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-100 hover:border-black dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:border-white'}
+// Styled component for individual category filter chips
+// Provides theme-aware styling with active and inactive states
+const FilterChip = styled.button`
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  border: 2px solid #e5e7eb;
+  background: #ffffff;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  /* Focus styles for accessibility */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  /* Hover effects for inactive state */
+  &:hover {
+    background: #f9fafb;
+    border-color: #000000;
+  }
+  
+  /* Active state styling */
+  ${props => props.active && `
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+    
+    &:hover {
+      background: #000000;
+      border-color: #000000;
+    }
+  `}
+  
+  /* Dark mode styling */
+  .dark & {
+    background: #1f2937;
+    color: #d1d5db;
+    border-color: #374151;
+    
+    &:hover {
+      background: #374151;
+      border-color: #ffffff;
+    }
+    
+    ${props => props.active && `
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      
+      &:hover {
+        background: #ffffff;
+        border-color: #ffffff;
+      }
     `}
-    onClick={onClick}
-    tabIndex={0}
-    aria-pressed={active}
-  >
-    {children}
-  </button>
-);
+  }
+`;
 
+// Main FilterBar component
 export const FilterBar = ({
-  categories,
-  selectedCategory,
-  onCategoryChange
+  categories, // Array of available category names
+  selectedCategory, // Currently selected category (null for "All")
+  onCategoryChange // Callback function when category selection changes
 }) => {
   return (
     <FilterContainer>
+      {/* "All Components" filter chip - shows all components when selected */}
       <FilterChip
-        active={selectedCategory === null}
-        onClick={() => onCategoryChange(null)}
+        active={selectedCategory === null} // Active when no category is selected
+        onClick={() => onCategoryChange(null)} // Clear category filter
       >
         All Components
       </FilterChip>
+      
+      {/* Render filter chips for each available category */}
       {categories.map(category => (
         <FilterChip
-          key={category}
-          active={selectedCategory === category}
-          onClick={() => onCategoryChange(category)}
+          key={category} // Unique key for React list rendering
+          active={selectedCategory === category} // Active when this category is selected
+          onClick={() => onCategoryChange(category)} // Set this category as selected
         >
           {category}
         </FilterChip>
